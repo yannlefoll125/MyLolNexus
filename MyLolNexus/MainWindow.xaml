@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:MyLolNexus"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <Label>Summoner name: </Label>
+            <TextBox Width="200" x:Name="summoner_name"/>
+            <ComboBox x:Name="server_combobox">
+                <ComboBoxItem Name="EUW" IsSelected="True">EUW</ComboBoxItem>
+                <ComboBoxItem Name="NA">NA</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="ok_button" Content="OK"/>
+
+        </StackPanel>
         
-    </Grid>
+    </StackPanel>
 </Window>

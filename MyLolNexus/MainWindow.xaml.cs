@@ -31,6 +31,25 @@ namespace MyLolNexus {
 
             Console.WriteLine("Server: " + server + " summoner name: " + summonerName);
 
+            RestApiProxy restApiProxy = new RestApiProxy();
+
+            string apiBaseUrl = ApiResourceBuilder.GetApiBaseUrl(ApiResourceBuilder.ServerRegion.EUW);
+            Console.WriteLine("apiBaseUrl: " + apiBaseUrl);
+
+            
+
+            string url = ApiResourceBuilder.GetResourceUrl(ApiResourceBuilder.ServerRegion.EUW, ApiResourceBuilder.ApiResource.Summoner);
+            url += "by-name/" + summonerName;
+            Console.WriteLine("url: " + url);
+
+
+            string response = restApiProxy.GetRequest(url, null);
+
+
+
+
+            Console.WriteLine("Response: " + response);
+
         }
     }
 }

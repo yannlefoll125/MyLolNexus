@@ -9,7 +9,7 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal" >
             <Label>Summoner name: </Label>
-            <TextBox Width="200" x:Name="summoner_name"/>
+            <TextBox Width="200" Text="Ziltoid The Omn" x:Name="summoner_name"/>
             <ComboBox x:Name="server_combobox">
                 <ComboBoxItem Name="EUW" IsSelected="True">EUW</ComboBoxItem>
                 <ComboBoxItem Name="NA">NA</ComboBoxItem>

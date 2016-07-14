@@ -14,7 +14,7 @@
                 <ComboBoxItem Name="EUW" IsSelected="True">EUW</ComboBoxItem>
                 <ComboBoxItem Name="NA">NA</ComboBoxItem>
             </ComboBox>
-            <Button x:Name="ok_button" Content="OK"/>
+            <Button x:Name="ok_button" Content="OK" Click="ok_button_Click"/>
 
         </StackPanel>
         

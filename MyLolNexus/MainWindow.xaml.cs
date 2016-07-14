@@ -21,5 +21,16 @@ namespace MyLolNexus {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void ok_button_Click(object sender, RoutedEventArgs e) {
+            ComboBox serverComboBox = (ComboBox)server_combobox;
+            string server = serverComboBox.SelectedValue.ToString();
+
+            TextBox summonerNameTextBox = (TextBox)summoner_name;
+            string summonerName = summonerNameTextBox.Text;
+
+            Console.WriteLine("Server: " + server + " summoner name: " + summonerName);
+
+        }
     }
 }

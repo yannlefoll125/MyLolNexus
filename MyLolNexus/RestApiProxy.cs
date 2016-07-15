@@ -18,17 +18,27 @@ namespace MyLolNexus {
             { ServerRegion.NA,  "na"}
         };
 
+        private static Dictionary<string, ServerRegion> stringRegionMap = new Dictionary<string, ServerRegion>() {
+            { "euw", ServerRegion.EUW },
+            { "na", ServerRegion.NA}
+        };
+
+        private static Dictionary<ServerRegion, string> platformIdString = new Dictionary<ServerRegion, string>() {
+            { ServerRegion.EUW,  "EUW1" },
+            { ServerRegion.NA,  "NA1"}
+        };
+
         public enum ApiResource { Summoner, CurrentGame };
 
 
         private static Dictionary<ApiResource, string> apiResource = new Dictionary<ApiResource, string>() {
-            { ApiResource.Summoner, Properties.Resources.summoner }
+            { ApiResource.Summoner, Properties.Resources.summoner },
+            { ApiResource.CurrentGame, Properties.Resources.current_game }
         };
 
 
         public static string GetApiBaseUrl(ServerRegion region) {
             string apiBaseUrl = string.Format(Properties.Resources.api_url, regionString[region]);
-            Console.WriteLine("apiBaseUrl: " + apiBaseUrl);
             return apiBaseUrl;
         }
 
@@ -37,11 +47,27 @@ namespace MyLolNexus {
         public static string GetResourceUrl(ServerRegion region, ApiResource resource) {
             string apiBaseUrl = GetApiBaseUrl(region);
             string resourceUrl = string.Format(apiResource[resource], regionString[region]);
-
-            Console.WriteLine("resourceUrl: " + apiBaseUrl + resourceUrl);
+            
             return apiBaseUrl + resourceUrl;
         }
 
+
+        public static string GetCurrentGameUrl(ServerRegion region, int summonerId) {
+
+            var unformattedUrl = GetResourceUrl(region, ApiResource.CurrentGame);
+
+            var platformId = platformIdString[region];
+
+            return string.Format(unformattedUrl, platformId, summonerId);
+        }
+        
+        public static ServerRegion GetServerRegionByName(string name) {
+
+            name = name.ToLowerInvariant();
+
+            return stringRegionMap[name];
+        }
+        
             
 
 
@@ -78,16 +104,11 @@ namespace MyLolNexus {
 
             string urlParameters = BuildUrlParameters(parameters);
 
-            Console.WriteLine("base_url: " + base_url);
-            Console.WriteLine(client.BaseAddress.ToString());
-
             HttpResponseMessage response = client.GetAsync(urlParameters).Result;
-            Console.WriteLine("Request: " + response.RequestMessage.ToString());
 
             if(response.IsSuccessStatusCode) {
                 return response.Content.ReadAsStringAsync().Result;
             } else {
-                Console.WriteLine("Error: " + response.StatusCode.ToString());
                 return "Error";
             }
 

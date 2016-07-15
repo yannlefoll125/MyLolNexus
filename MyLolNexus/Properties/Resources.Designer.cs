@@ -70,6 +70,15 @@ namespace MyLolNexus.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à /observer-mode/rest/consumer/getSpectatorGameInfo/{0}/{1}.
+        /// </summary>
+        internal static string current_game {
+            get {
+                return ResourceManager.GetString("current_game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à euw.
         /// </summary>
         internal static string euw {

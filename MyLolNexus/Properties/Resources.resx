@@ -120,6 +120,10 @@
   <data name="api_url" xml:space="preserve">
     <value>https://{0}.api.pvp.net/</value>
   </data>
+  <data name="current_game" xml:space="preserve">
+    <value>/observer-mode/rest/consumer/getSpectatorGameInfo/{0}/{1}</value>
+    <comment>{0}: platform ID (EUW1, NA1...), {1}: summoner ID</comment>
+  </data>
   <data name="euw" xml:space="preserve">
     <value>euw</value>
   </data>

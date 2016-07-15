@@ -26,36 +26,31 @@ namespace MyLolNexus {
 
         private void ok_button_Click(object sender, RoutedEventArgs e) {
             ComboBox serverComboBox = (ComboBox)server_combobox;
-            string server = serverComboBox.SelectedValue.ToString();
+            string server = serverComboBox.Text;
+
+            ApiResourceBuilder.ServerRegion serverRegion = ApiResourceBuilder.GetServerRegionByName(server);
+
 
             TextBox summonerNameTextBox = (TextBox)summoner_name;
             string summonerName = summonerNameTextBox.Text;
-            /*
-            Console.WriteLine("Server: " + server + " summoner name: " + summonerName);
+            
+
 
             RestApiProxy restApiProxy = new RestApiProxy();
 
-            string apiBaseUrl = ApiResourceBuilder.GetApiBaseUrl(ApiResourceBuilder.ServerRegion.EUW);
-            Console.WriteLine("apiBaseUrl: " + apiBaseUrl);
+            string apiBaseUrl = ApiResourceBuilder.GetApiBaseUrl(serverRegion);
 
-            
-
-            string url = ApiResourceBuilder.GetResourceUrl(ApiResourceBuilder.ServerRegion.EUW, ApiResourceBuilder.ApiResource.Summoner);
+            string url = ApiResourceBuilder.GetResourceUrl(serverRegion, ApiResourceBuilder.ApiResource.Summoner);
             url += "by-name/" + summonerName;
-            Console.WriteLine("url: " + url);
-
 
             string response = restApiProxy.GetRequest(url, null);
 
-            Console.WriteLine("response: " + response);
-            */
-            var response = @"{""ziltoidtheomn"":{""id"":22875917,""name"":""Ziltoid The Omn"",""profileIconId"":673,""summonerLevel"":30,""revisionDate"":1468476832000}}";
-            //response = @"{""id"":22875917,""name"":""Ziltoid The Omn"",""profileIconId"":673,""summonerLevel"":30,""revisionDate"":1468476832000}";
+            var s = Summoner.DeserializeSummonerByName(response);
 
-            var s = Summoner.DeserializeSummonerById(response);
-
-            //var s = JsonConvert.DeserializeObject<Summoner>(response);
             Console.WriteLine("result: " + s.ToString());
+
+            var summonerId = s.id;
+            Console.WriteLine(s.ToString());
 
         }
     }

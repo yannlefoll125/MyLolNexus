@@ -24,7 +24,7 @@ namespace MyLolNexus.Data {
             return output;
         }
 
-        public static Summoner DeserializeSummonerById(string jsonString) {
+        public static Summoner DeserializeSummonerByName(string jsonString) {
 
             JObject jObject = JObject.Parse(jsonString);
 

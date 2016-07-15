@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyLolNexus.Data;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +30,7 @@ namespace MyLolNexus {
 
             TextBox summonerNameTextBox = (TextBox)summoner_name;
             string summonerName = summonerNameTextBox.Text;
-
+            /*
             Console.WriteLine("Server: " + server + " summoner name: " + summonerName);
 
             RestApiProxy restApiProxy = new RestApiProxy();
@@ -45,10 +47,15 @@ namespace MyLolNexus {
 
             string response = restApiProxy.GetRequest(url, null);
 
+            Console.WriteLine("response: " + response);
+            */
+            var response = @"{""ziltoidtheomn"":{""id"":22875917,""name"":""Ziltoid The Omn"",""profileIconId"":673,""summonerLevel"":30,""revisionDate"":1468476832000}}";
+            //response = @"{""id"":22875917,""name"":""Ziltoid The Omn"",""profileIconId"":673,""summonerLevel"":30,""revisionDate"":1468476832000}";
 
+            var s = Summoner.DeserializeSummonerById(response);
 
-
-            Console.WriteLine("Response: " + response);
+            //var s = JsonConvert.DeserializeObject<Summoner>(response);
+            Console.WriteLine("result: " + s.ToString());
 
         }
     }

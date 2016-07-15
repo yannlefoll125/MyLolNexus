@@ -50,7 +50,13 @@ namespace MyLolNexus {
             Console.WriteLine("result: " + s.ToString());
 
             var summonerId = s.id;
-            Console.WriteLine(s.ToString());
+
+            var currentGameUrlString = ApiResourceBuilder.GetCurrentGameUrl(serverRegion, summonerId);
+            Console.WriteLine(currentGameUrlString);
+
+            var currentGameResponse = restApiProxy.GetRequest(currentGameUrlString);
+
+            Console.WriteLine(currentGameResponse);
 
         }
     }

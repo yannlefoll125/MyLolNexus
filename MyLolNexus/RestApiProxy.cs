@@ -53,12 +53,15 @@ namespace MyLolNexus {
 
 
         public static string GetCurrentGameUrl(ServerRegion region, int summonerId) {
-
-            var unformattedUrl = GetResourceUrl(region, ApiResource.CurrentGame);
+            var apiBaseUrl = GetApiBaseUrl(region);
 
             var platformId = platformIdString[region];
+            var resourceUri = string.Format(apiResource[ApiResource.CurrentGame], platformId, summonerId);
 
-            return string.Format(unformattedUrl, platformId, summonerId);
+
+
+
+            return apiBaseUrl + resourceUri;
         }
         
         public static ServerRegion GetServerRegionByName(string name) {

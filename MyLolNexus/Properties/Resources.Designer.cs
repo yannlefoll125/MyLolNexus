@@ -70,7 +70,7 @@ namespace MyLolNexus.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à /observer-mode/rest/consumer/getSpectatorGameInfo/{0}/{1}.
+        ///   Recherche une chaîne localisée semblable à observer-mode/rest/consumer/getSpectatorGameInfo/{0}/{1}.
         /// </summary>
         internal static string current_game {
             get {

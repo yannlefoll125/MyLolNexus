@@ -35,28 +35,43 @@ namespace MyLolNexus {
             string summonerName = summonerNameTextBox.Text;
             
 
-
             RestApiProxy restApiProxy = new RestApiProxy();
 
             string apiBaseUrl = ApiResourceBuilder.GetApiBaseUrl(serverRegion);
 
+
+            //Getting summoner ID
             string url = ApiResourceBuilder.GetResourceUrl(serverRegion, ApiResourceBuilder.ApiResource.Summoner);
             url += "by-name/" + summonerName;
 
-            string response = restApiProxy.GetRequest(url, null);
+            ApiResponse summonerResponse = restApiProxy.GetRequest(url, null);
 
-            var s = Summoner.DeserializeSummonerByName(response);
+            Console.WriteLine("response: " + summonerResponse);
 
-            Console.WriteLine("result: " + s.ToString());
+            if(summonerResponse.StatusCode == System.Net.HttpStatusCode.OK) {
+                var s = Summoner.DeserializeSummonerByName(summonerResponse.JsonString);
 
-            var summonerId = s.id;
+                Console.WriteLine("result: " + s.ToString());
 
-            var currentGameUrlString = ApiResourceBuilder.GetCurrentGameUrl(serverRegion, summonerId);
-            Console.WriteLine(currentGameUrlString);
+                var summonerId = s.id;
 
-            var currentGameResponse = restApiProxy.GetRequest(currentGameUrlString);
+                var currentGameUrlString = ApiResourceBuilder.GetCurrentGameUrl(serverRegion, summonerId);
+                Console.WriteLine(currentGameUrlString);
 
-            Console.WriteLine(currentGameResponse);
+                var currentGameResponse = restApiProxy.GetRequest(currentGameUrlString);
+                Console.WriteLine("currentGameResponse: " + currentGameResponse);
+
+                CurrentGame currentGame = CurrentGame.DeserializeCurrentGame(currentGameResponse.JsonString);
+
+
+                foreach (Participant p in currentGame.participants) {
+                    Console.WriteLine(p.summonerName + " team: " + p.teamId);
+                }
+            }
+
+            
+
+            
 
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,11 +96,11 @@ namespace MyLolNexus {
             return urlParameters;
         }
 
-        public string GetRequest(string base_url) {
+        public ApiResponse GetRequest(string base_url) {
             return GetRequest(base_url, new Dictionary<string, string>());
         } 
 
-        public string GetRequest(string base_url, Dictionary<string, string> parameters) {
+        public ApiResponse GetRequest(string base_url, Dictionary<string, string> parameters) {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(base_url);
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -109,13 +110,20 @@ namespace MyLolNexus {
 
             HttpResponseMessage response = client.GetAsync(urlParameters).Result;
 
-            if(response.IsSuccessStatusCode) {
-                return response.Content.ReadAsStringAsync().Result;
-            } else {
-                return "Error";
-            }
+            return new ApiResponse(response.StatusCode, response.Content.ReadAsStringAsync().Result);
+    
+        }
 
-            
+
+    }
+
+    class ApiResponse {
+        public HttpStatusCode StatusCode { get; }
+        public string JsonString { get; }
+
+        public ApiResponse(HttpStatusCode status, string response) {
+            this.StatusCode = status;
+            this.JsonString = response;
         }
     }
 }

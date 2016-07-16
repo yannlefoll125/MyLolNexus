@@ -79,11 +79,55 @@ namespace MyLolNexus.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à {
+        ///   &quot;gameLength&quot;: 386,
+        ///   &quot;gameMode&quot;: &quot;CLASSIC&quot;,
+        ///   &quot;mapId&quot;: 11,
+        ///   &quot;bannedChampions&quot;: [
+        ///      {
+        ///         &quot;pickTurn&quot;: 1,
+        ///         &quot;championId&quot;: 238,
+        ///         &quot;teamId&quot;: 100
+        ///      },
+        ///      {
+        ///         &quot;pickTurn&quot;: 2,
+        ///         &quot;championId&quot;: 203,
+        ///         &quot;teamId&quot;: 200
+        ///      },
+        ///      {
+        ///         &quot;pickTurn&quot;: 3,
+        ///         &quot;championId&quot;: 120,
+        ///         &quot;teamId&quot;: 100
+        ///      },
+        ///      {
+        ///         &quot;pickTurn&quot;: 4,
+        ///         &quot;championId&quot;: 39,
+        ///         &quot;teamId&quot;: 200
+        ///      },
+        ///      {
+        ///         &quot;pickTurn&quot;:  [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
+        internal static string current_game_santana_claus {
+            get {
+                return ResourceManager.GetString("current_game_santana_claus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à euw.
         /// </summary>
         internal static string euw {
             get {
                 return ResourceManager.GetString("euw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à /api/lol/{0}/v2.5/league/by-summoner/{1}.
+        /// </summary>
+        internal static string league_by_summoner_id {
+            get {
+                return ResourceManager.GetString("league_by_summoner_id", resourceCulture);
             }
         }
         

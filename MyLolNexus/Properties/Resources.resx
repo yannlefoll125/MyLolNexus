@@ -124,8 +124,16 @@
     <value>observer-mode/rest/consumer/getSpectatorGameInfo/{0}/{1}</value>
     <comment>{0}: platform ID (EUW1, NA1...), {1}: summoner ID</comment>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="current_game_santana_claus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\current_game_santana_claus.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="euw" xml:space="preserve">
     <value>euw</value>
+  </data>
+  <data name="league_by_summoner_id" xml:space="preserve">
+    <value>/api/lol/{0}/v2.5/league/by-summoner/{1}</value>
+    <comment>{0}: region {1}: summoner id</comment>
   </data>
   <data name="na" xml:space="preserve">
     <value>na</value>

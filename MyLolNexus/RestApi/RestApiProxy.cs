@@ -6,9 +6,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyLolNexus {
+namespace MyLolNexus.RestApi {
 
-    class ApiResourceBuilder {
+    static class ApiResourceBuilder {
         public enum ServerRegion {
             EUW,
             NA
@@ -77,12 +77,12 @@ namespace MyLolNexus {
 
     }
 
-    class RestApiProxy {
+    static class RestApiProxy {
 
         private const string API_KEY = "93988639-94c2-475d-a80a-c46dc4cb4522";
         private const string API_KEY_PARAM = "?api_key=" + API_KEY;
 
-        private string BuildUrlParameters(Dictionary<string, string> parameters) {
+        private static string BuildUrlParameters(Dictionary<string, string> parameters) {
             string urlParameters = API_KEY_PARAM;
 
             if (parameters == null) {
@@ -96,11 +96,14 @@ namespace MyLolNexus {
             return urlParameters;
         }
 
-        public ApiResponse GetRequest(string base_url) {
+        public static ApiResponse GetRequest(string base_url) {
             return GetRequest(base_url, new Dictionary<string, string>());
         } 
 
-        public ApiResponse GetRequest(string base_url, Dictionary<string, string> parameters) {
+        public static ApiResponse GetRequest(string base_url, Dictionary<string, string> parameters) {
+
+            Console.WriteLine("GetRequest with url: " + base_url);
+
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(base_url);
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -108,7 +111,11 @@ namespace MyLolNexus {
 
             string urlParameters = BuildUrlParameters(parameters);
 
+            Console.WriteLine("URL with api_key: " + base_url + urlParameters);
+
             HttpResponseMessage response = client.GetAsync(urlParameters).Result;
+
+            Console.WriteLine("received response");
 
             return new ApiResponse(response.StatusCode, response.Content.ReadAsStringAsync().Result);
     

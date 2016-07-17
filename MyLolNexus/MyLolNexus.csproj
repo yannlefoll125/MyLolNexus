@@ -68,8 +68,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\CurrentGame.cs" />
+    <Compile Include="Model\CurrentGameModel.cs" />
     <Compile Include="Data\Summoner.cs" />
-    <Compile Include="RestApiProxy.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="RestApi\ApiHelper.cs" />
+    <Compile Include="RestApi\Constants.cs" />
+    <Compile Include="RestApi\RestApiProxy.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

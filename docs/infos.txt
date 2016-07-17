@@ -1,0 +1,32 @@
+Par joueur
+- Summoner name
+- Summoner spells
+- Champion (opt. times played, opt. kda)
+- Rank (opt. Last season rank)
+- Win number (opt. / loss number)
+
+- Runes
+- Masteries
+
+Pour la game 
+Par team:
+- Bans
+- Team MMR
+
+- Type de game
+
+
+v0.0
+Par joueur
+- Summoner name 			(Participant)
+- Summoner spells			(Participant.spell{1, 2}Id Retreive the names from /api/lol/static-data/{region}/v1.2/summoner-spell/{id})
+- Team (100 ou 200)			(Participant.teamID)
+- Champion					(Participant.championId, and name from /api/lol/static-data/{region}/v1.2/champion/{id})
+
+v0.1
+Par joueur
+- Summoner name 			(Participant)
+- Summoner spells			(Participant.spell{1, 2}Id Retreive the names from /api/lol/static-data/{region}/v1.2/summoner-spell/{id})
+- Team (100 ou 200)			(Participant.teamID)
+- Champion					(Participant.championId, and name from /api/lol/static-data/{region}/v1.2/champion/{id})
+- Rank

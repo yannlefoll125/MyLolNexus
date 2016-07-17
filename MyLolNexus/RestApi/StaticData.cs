@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MyLolNexus.RestApi {
-    class Constants {
+    class StaticData {
 
         public static readonly Dictionary<int, string> summonerSpellById = new Dictionary<int, string>() {
             { 1, "cleanse" },

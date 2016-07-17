@@ -23,12 +23,12 @@ namespace MyLolNexus.Model {
                 ParticipantModel pm = new ParticipantModel();
                 pm.SummonerName = p.summonerName;
 
-                pm.SummonerSpells[0] = Constants.summonerSpellById[p.spell1Id];
-                pm.SummonerSpells[1] = Constants.summonerSpellById[p.spell2Id];
+                pm.SummonerSpells[0] = StaticData.summonerSpellById[p.spell1Id];
+                pm.SummonerSpells[1] = StaticData.summonerSpellById[p.spell2Id];
 
-                pm.ChampionName = Constants.championById[p.championId];
+                pm.ChampionName = StaticData.championById[p.championId];
 
-                if (p.teamId == Constants.Team.Team1) {
+                if (p.teamId == StaticData.Team.Team1) {
                     currentGameModel.Team1.Add(pm);
                 } else {
                     currentGameModel.Team2.Add(pm);

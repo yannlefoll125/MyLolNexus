@@ -23,7 +23,10 @@ namespace MyLolNexus.Model {
                 ParticipantModel pm = new ParticipantModel();
                 pm.SummonerName = p.summonerName;
 
-                if(p.teamId == Constants.Team.Team1) {
+                pm.SummonerSpells[0] = Constants.summonerSpell[p.spell1Id];
+                pm.SummonerSpells[1] = Constants.summonerSpell[p.spell2Id];
+
+                if (p.teamId == Constants.Team.Team1) {
                     currentGameModel.Team1.Add(pm);
                 } else {
                     currentGameModel.Team2.Add(pm);

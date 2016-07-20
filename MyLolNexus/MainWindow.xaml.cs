@@ -2,8 +2,11 @@
 using MyLolNexus.Model;
 using MyLolNexus.RestApi;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MyLolNexus {
     /// <summary>
@@ -24,11 +27,23 @@ namespace MyLolNexus {
             TextBox summonerNameTextBox = (TextBox)summoner_name;
             string summonerName = summonerNameTextBox.Text;
 
-            
-            CurrentGameModel cgm = ModelHelper.GetCurrentGameModel(serverRegion, summonerName);
+
+            //CurrentGameModel cgm = ModelHelper.GetCurrentGameModel(serverRegion, summonerName);
+            CurrentGameModel cgm = ModelHelper.GetDummyCurrentGameModel();
 
             Console.WriteLine(cgm.ToString());
 
+            foreach(ParticipantModel pm in cgm.Team1) {
+                ParticipantView pv = new ParticipantView();
+                pv.summonerName.Content = pm.SummonerName;
+
+                var imageName = pm.ChampionName + "_Square_0.png";
+
+                pv.championImage.Source = new BitmapImage(new Uri("pack://application:,,,/Images/Champions/" + imageName));
+
+
+                this.team1StackPanel.Children.Add(pv);
+            }
             
 
         }

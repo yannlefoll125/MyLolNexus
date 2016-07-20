@@ -17,9 +17,21 @@ namespace MyLolNexus.Model {
 
             Console.WriteLine("CurrentGame has been fetched via the API");
 
+            return CreateCurrentGameModel(currentGame);
+            
+        }
+
+        public static CurrentGameModel GetDummyCurrentGameModel() {
+            CurrentGame currentGame = ApiHelper.GetDummyCurrentGame();
+            CurrentGameModel currentGameModel = CreateCurrentGameModel(currentGame);
+            return currentGameModel;
+
+        }
+
+        private static CurrentGameModel CreateCurrentGameModel(CurrentGame currentGame) {
             CurrentGameModel currentGameModel = new CurrentGameModel();
 
-            foreach(Participant p in currentGame.participants) {
+            foreach (Participant p in currentGame.participants) {
                 ParticipantModel pm = new ParticipantModel();
                 pm.SummonerName = p.summonerName;
 
@@ -33,7 +45,7 @@ namespace MyLolNexus.Model {
                 } else {
                     currentGameModel.Team2.Add(pm);
                 }
-                
+
             }
 
             return currentGameModel;

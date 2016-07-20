@@ -16,7 +16,10 @@
             </ComboBox>
             <Button x:Name="ok_button" Content="OK" Click="ok_button_Click"/>
 
+       
+
         </StackPanel>
-        
+        <StackPanel x:Name="team1StackPanel" Orientation="Vertical"></StackPanel>
+        <StackPanel x:Name="team2StackPanel" Orientation="Vertical"></StackPanel>
     </StackPanel>
 </Window>

@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,6 +72,9 @@
     <Compile Include="Model\CurrentGameModel.cs" />
     <Compile Include="Data\Summoner.cs" />
     <Compile Include="Model\Model.cs" />
+    <Compile Include="ParticipantView.xaml.cs">
+      <DependentUpon>ParticipantView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RestApi\ApiHelper.cs" />
     <Compile Include="RestApi\StaticData.cs" />
     <Compile Include="RestApi\RestApiProxy.cs" />
@@ -78,6 +82,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ParticipantView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -98,6 +106,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="assets\summoner_spells\summoner_spells_static_data.json" />
+    <None Include="Images\Champions\champions.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -110,7 +119,567 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\champions\" />
+    <None Include="assets\summoner_spells\barrier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Aatrox_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Ahri_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Akali_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Alistar_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Amumu_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Anivia_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Annie_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Ashe_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\AurelionSol_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Azir_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Bard_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Blitzcrank_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Brand_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Braum_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Caitlyn_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Cassiopeia_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Chogath_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Corki_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Darius_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Diana_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Draven_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\DrMundo_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Ekko_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Elise_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Evelynn_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Ezreal_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Fiddlesticks_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Fiora_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Fizz_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Galio_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Gangplank_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Garen_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Gnar_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Gragas_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Graves_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Hecarim_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Heimerdinger_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Illaoi_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Irelia_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Janna_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\JarvanIV_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Jax_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Jayce_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Jhin_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Jinx_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Kalista_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Karma_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Karthus_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Kassadin_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Katarina_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Kayle_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Kennen_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Khazix_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Kindred_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\KogMaw_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Leblanc_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\LeeSin_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Leona_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Lissandra_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Lucian_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Lulu_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Lux_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Malphite_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Malzahar_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Maokai_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\MasterYi_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\MissFortune_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\MonkeyKing_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Mordekaiser_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Morgana_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Nami_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Nasus_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Nautilus_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Nidalee_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Nocturne_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Nunu_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Olaf_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Orianna_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Pantheon_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Poppy_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Quinn_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Rammus_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\RekSai_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Renekton_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Rengar_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Riven_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Rumble_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Ryze_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Sejuani_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Shaco_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Shen_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Shyvana_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Singed_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Sion_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Sivir_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Skarner_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Sona_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Soraka_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Swain_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Syndra_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\TahmKench_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Taliyah_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Talon_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Taric_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Teemo_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Thresh_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Tristana_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Trundle_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Tryndamere_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\TwistedFate_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Twitch_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Udyr_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Urgot_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Varus_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Vayne_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Veigar_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\VelKoz_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Vi_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Viktor_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Vladimir_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Voidgate_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Voidspawn_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Volibear_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Warwick_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Xerath_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\XinZhao_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Yasuo_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Yorick_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Zac_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Zed_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Ziggs_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Zilean_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\champions\Zyra_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\summoner_spells\cleanse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\summoner_spells\exhaust.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\summoner_spells\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\summoner_spells\ghost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\summoner_spells\heal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\summoner_spells\ignite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\summoner_spells\smite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\summoner_spells\teleport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Champions\Ahri_Square_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Champions\Aatrox_Square_0.png" />
+    <Resource Include="Images\Champions\Akali_Square_0.png" />
+    <Resource Include="Images\Champions\Alistar_Square_0.png" />
+    <Resource Include="Images\Champions\Amumu_Square_0.png" />
+    <Resource Include="Images\Champions\Anivia_Square_0.png" />
+    <Resource Include="Images\Champions\Annie_Square_0.png" />
+    <Resource Include="Images\Champions\Ashe_Square_0.png" />
+    <Resource Include="Images\Champions\AurelionSol_Square_0.png" />
+    <Resource Include="Images\Champions\Azir_Square_0.png" />
+    <Resource Include="Images\Champions\Bard_Square_0.png" />
+    <Resource Include="Images\Champions\Blitzcrank_Square_0.png" />
+    <Resource Include="Images\Champions\Brand_Square_0.png" />
+    <Resource Include="Images\Champions\Braum_Square_0.png" />
+    <Resource Include="Images\Champions\Caitlyn_Square_0.png" />
+    <Resource Include="Images\Champions\Cassiopeia_Square_0.png" />
+    <Resource Include="Images\Champions\Chogath_Square_0.png" />
+    <Resource Include="Images\Champions\Corki_Square_0.png" />
+    <Resource Include="Images\Champions\Darius_Square_0.png" />
+    <Resource Include="Images\Champions\Diana_Square_0.png" />
+    <Resource Include="Images\Champions\Draven_Square_0.png" />
+    <Resource Include="Images\Champions\DrMundo_Square_0.png" />
+    <Resource Include="Images\Champions\Ekko_Square_0.png" />
+    <Resource Include="Images\Champions\Elise_Square_0.png" />
+    <Resource Include="Images\Champions\Evelynn_Square_0.png" />
+    <Resource Include="Images\Champions\Ezreal_Square_0.png" />
+    <Resource Include="Images\Champions\Fiddlesticks_Square_0.png" />
+    <Resource Include="Images\Champions\Fiora_Square_0.png" />
+    <Resource Include="Images\Champions\Fizz_Square_0.png" />
+    <Resource Include="Images\Champions\Galio_Square_0.png" />
+    <Resource Include="Images\Champions\Gangplank_Square_0.png" />
+    <Resource Include="Images\Champions\Garen_Square_0.png" />
+    <Resource Include="Images\Champions\Gnar_Square_0.png" />
+    <Resource Include="Images\Champions\Gragas_Square_0.png" />
+    <Resource Include="Images\Champions\Graves_Square_0.png" />
+    <Resource Include="Images\Champions\Hecarim_Square_0.png" />
+    <Resource Include="Images\Champions\Heimerdinger_Square_0.png" />
+    <Resource Include="Images\Champions\Illaoi_Square_0.png" />
+    <Resource Include="Images\Champions\Irelia_Square_0.png" />
+    <Resource Include="Images\Champions\Janna_Square_0.png" />
+    <Resource Include="Images\Champions\JarvanIV_Square_0.png" />
+    <Resource Include="Images\Champions\Jax_Square_0.png" />
+    <Resource Include="Images\Champions\Jayce_Square_0.png" />
+    <Resource Include="Images\Champions\Jhin_Square_0.png" />
+    <Resource Include="Images\Champions\Jinx_Square_0.png" />
+    <Resource Include="Images\Champions\Kalista_Square_0.png" />
+    <Resource Include="Images\Champions\Karma_Square_0.png" />
+    <Resource Include="Images\Champions\Karthus_Square_0.png" />
+    <Resource Include="Images\Champions\Kassadin_Square_0.png" />
+    <Resource Include="Images\Champions\Katarina_Square_0.png" />
+    <Resource Include="Images\Champions\Kayle_Square_0.png" />
+    <Resource Include="Images\Champions\Kennen_Square_0.png" />
+    <Resource Include="Images\Champions\Khazix_Square_0.png" />
+    <Resource Include="Images\Champions\Kindred_Square_0.png" />
+    <Resource Include="Images\Champions\KogMaw_Square_0.png" />
+    <Resource Include="Images\Champions\Leblanc_Square_0.png" />
+    <Resource Include="Images\Champions\LeeSin_Square_0.png" />
+    <Resource Include="Images\Champions\Leona_Square_0.png" />
+    <Resource Include="Images\Champions\Lissandra_Square_0.png" />
+    <Resource Include="Images\Champions\Lucian_Square_0.png" />
+    <Resource Include="Images\Champions\Lulu_Square_0.png" />
+    <Resource Include="Images\Champions\Lux_Square_0.png" />
+    <Resource Include="Images\Champions\Malphite_Square_0.png" />
+    <Resource Include="Images\Champions\Malzahar_Square_0.png" />
+    <Resource Include="Images\Champions\Maokai_Square_0.png" />
+    <Resource Include="Images\Champions\MasterYi_Square_0.png" />
+    <Resource Include="Images\Champions\MissFortune_Square_0.png" />
+    <Resource Include="Images\Champions\MonkeyKing_Square_0.png" />
+    <Resource Include="Images\Champions\Mordekaiser_Square_0.png" />
+    <Resource Include="Images\Champions\Morgana_Square_0.png" />
+    <Resource Include="Images\Champions\Nami_Square_0.png" />
+    <Resource Include="Images\Champions\Nasus_Square_0.png" />
+    <Resource Include="Images\Champions\Nautilus_Square_0.png" />
+    <Resource Include="Images\Champions\Nidalee_Square_0.png" />
+    <Resource Include="Images\Champions\Nocturne_Square_0.png" />
+    <Resource Include="Images\Champions\Nunu_Square_0.png" />
+    <Resource Include="Images\Champions\Olaf_Square_0.png" />
+    <Resource Include="Images\Champions\Orianna_Square_0.png" />
+    <Resource Include="Images\Champions\Pantheon_Square_0.png" />
+    <Resource Include="Images\Champions\Poppy_Square_0.png" />
+    <Resource Include="Images\Champions\Quinn_Square_0.png" />
+    <Resource Include="Images\Champions\Rammus_Square_0.png" />
+    <Resource Include="Images\Champions\RekSai_Square_0.png" />
+    <Resource Include="Images\Champions\Renekton_Square_0.png" />
+    <Resource Include="Images\Champions\Rengar_Square_0.png" />
+    <Resource Include="Images\Champions\Riven_Square_0.png" />
+    <Resource Include="Images\Champions\Rumble_Square_0.png" />
+    <Resource Include="Images\Champions\Ryze_Square_0.png" />
+    <Resource Include="Images\Champions\Sejuani_Square_0.png" />
+    <Resource Include="Images\Champions\Shaco_Square_0.png" />
+    <Resource Include="Images\Champions\Shen_Square_0.png" />
+    <Resource Include="Images\Champions\Shyvana_Square_0.png" />
+    <Resource Include="Images\Champions\Singed_Square_0.png" />
+    <Resource Include="Images\Champions\Sion_Square_0.png" />
+    <Resource Include="Images\Champions\Sivir_Square_0.png" />
+    <Resource Include="Images\Champions\Skarner_Square_0.png" />
+    <Resource Include="Images\Champions\Sona_Square_0.png" />
+    <Resource Include="Images\Champions\Soraka_Square_0.png" />
+    <Resource Include="Images\Champions\Swain_Square_0.png" />
+    <Resource Include="Images\Champions\Syndra_Square_0.png" />
+    <Resource Include="Images\Champions\TahmKench_Square_0.png" />
+    <Resource Include="Images\Champions\Taliyah_Square_0.png" />
+    <Resource Include="Images\Champions\Talon_Square_0.png" />
+    <Resource Include="Images\Champions\Taric_Square_0.png" />
+    <Resource Include="Images\Champions\Teemo_Square_0.png" />
+    <Resource Include="Images\Champions\Thresh_Square_0.png" />
+    <Resource Include="Images\Champions\Tristana_Square_0.png" />
+    <Resource Include="Images\Champions\Trundle_Square_0.png" />
+    <Resource Include="Images\Champions\Tryndamere_Square_0.png" />
+    <Resource Include="Images\Champions\TwistedFate_Square_0.png" />
+    <Resource Include="Images\Champions\Twitch_Square_0.png" />
+    <Resource Include="Images\Champions\Udyr_Square_0.png" />
+    <Resource Include="Images\Champions\Urgot_Square_0.png" />
+    <Resource Include="Images\Champions\Varus_Square_0.png" />
+    <Resource Include="Images\Champions\Vayne_Square_0.png" />
+    <Resource Include="Images\Champions\Veigar_Square_0.png" />
+    <Resource Include="Images\Champions\VelKoz_Square_0.png" />
+    <Resource Include="Images\Champions\Viktor_Square_0.png" />
+    <Resource Include="Images\Champions\Vi_Square_0.png" />
+    <Resource Include="Images\Champions\Vladimir_Square_0.png" />
+    <Resource Include="Images\Champions\Voidgate_Square_0.png" />
+    <Resource Include="Images\Champions\Voidspawn_Square_0.png" />
+    <Resource Include="Images\Champions\Volibear_Square_0.png" />
+    <Resource Include="Images\Champions\Warwick_Square_0.png" />
+    <Resource Include="Images\Champions\Xerath_Square_0.png" />
+    <Resource Include="Images\Champions\XinZhao_Square_0.png" />
+    <Resource Include="Images\Champions\Yasuo_Square_0.png" />
+    <Resource Include="Images\Champions\Yorick_Square_0.png" />
+    <Resource Include="Images\Champions\Zac_Square_0.png" />
+    <Resource Include="Images\Champions\Zed_Square_0.png" />
+    <Resource Include="Images\Champions\Ziggs_Square_0.png" />
+    <Resource Include="Images\Champions\Zilean_Square_0.png" />
+    <Resource Include="Images\Champions\Zyra_Square_0.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

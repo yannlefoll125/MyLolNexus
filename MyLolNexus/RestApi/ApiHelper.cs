@@ -42,6 +42,11 @@ namespace MyLolNexus.RestApi {
             return null;
         }
 
+        public static CurrentGame GetDummyCurrentGame() {
+            var jsonCurrentGame = Properties.Resources.current_game_santana_claus;
+            return CurrentGame.DeserializeCurrentGame(jsonCurrentGame);
+        }
+
 
     }
 }

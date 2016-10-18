@@ -19,7 +19,10 @@
        
 
         </StackPanel>
-        <StackPanel x:Name="team1StackPanel" Orientation="Vertical"></StackPanel>
-        <StackPanel x:Name="team2StackPanel" Orientation="Vertical"></StackPanel>
+        <StackPanel x:Name="teamsStackPanel" Orientation="Horizontal">
+            <StackPanel x:Name="team1StackPanel" Orientation="Vertical"></StackPanel>
+            <StackPanel x:Name="team2StackPanel" Orientation="Vertical"></StackPanel>
+        </StackPanel>
+        
     </StackPanel>
 </Window>

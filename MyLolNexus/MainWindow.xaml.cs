@@ -2,6 +2,7 @@
 using MyLolNexus.Model;
 using MyLolNexus.RestApi;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,12 +29,19 @@ namespace MyLolNexus {
             string summonerName = summonerNameTextBox.Text;
 
 
-            //CurrentGameModel cgm = ModelHelper.GetCurrentGameModel(serverRegion, summonerName);
-            CurrentGameModel cgm = ModelHelper.GetDummyCurrentGameModel();
+            CurrentGameModel cgm = ModelHelper.GetCurrentGameModel(serverRegion, summonerName);
+            //CurrentGameModel cgm = ModelHelper.GetDummyCurrentGameModel();
 
             Console.WriteLine(cgm.ToString());
 
-            foreach(ParticipantModel pm in cgm.Team1) {
+
+            fillTeamPanel(cgm.Team1, this.team1StackPanel);
+            fillTeamPanel(cgm.Team2, this.team2StackPanel);
+
+        }
+
+        private void fillTeamPanel(List<ParticipantModel> participantModelList, StackPanel teamStackPanel) {
+            foreach (ParticipantModel pm in participantModelList) {
                 ParticipantView pv = new ParticipantView();
                 pv.summonerName.Content = pm.SummonerName;
 
@@ -42,10 +50,13 @@ namespace MyLolNexus {
                 pv.championImage.Source = new BitmapImage(new Uri("pack://application:,,,/Images/Champions/" + imageName));
 
 
-                this.team1StackPanel.Children.Add(pv);
-            }
-            
+                var summonerSpell1Image = pm.SummonerSpells[0] + ".png";
+                var summonerSpell2Image = pm.SummonerSpells[1] + ".png";
+                pv.summonerSpell1Image.Source = new BitmapImage(new Uri("pack://application:,,,/Images/SummonerSpells/" + summonerSpell1Image));
+                pv.summonerSpell2Image.Source = new BitmapImage(new Uri("pack://application:,,,/Images/SummonerSpells/" + summonerSpell2Image));
 
+                teamStackPanel.Children.Add(pv);
+            }
         }
     }
 }

@@ -681,6 +681,17 @@
     <Resource Include="Images\Champions\Zilean_Square_0.png" />
     <Resource Include="Images\Champions\Zyra_Square_0.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SummonerSpells\barrier.png" />
+    <Resource Include="Images\SummonerSpells\cleanse.png" />
+    <Resource Include="Images\SummonerSpells\exhaust.png" />
+    <Resource Include="Images\SummonerSpells\flash.png" />
+    <Resource Include="Images\SummonerSpells\ghost.png" />
+    <Resource Include="Images\SummonerSpells\heal.png" />
+    <Resource Include="Images\SummonerSpells\ignite.png" />
+    <Resource Include="Images\SummonerSpells\smite.png" />
+    <Resource Include="Images\SummonerSpells\teleport.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
